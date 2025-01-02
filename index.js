@@ -1,5 +1,13 @@
 let body = document.querySelector("body");
 let foodx,foody;
+let score = 0;
+
+let scoreBoard = document.getElementById("score");
+scoreBoard.innerHTML = "Score: " + score;
+
+
+
+
 let food = document.createElement("div");
 
 console.log(body.getBoundingClientRect());
@@ -65,6 +73,9 @@ const snakeMoving = () => {
       console.log("food");
       // Place new food
       foodPlace();
+      score++;
+      scoreBoard.innerHTML = "Score: " + score;
+
     }
 
   }, 200);  
@@ -73,4 +84,5 @@ const snakeMoving = () => {
 snakeMoving();
 
 // console.log("foodx:"+foodx,foody);
+
 
