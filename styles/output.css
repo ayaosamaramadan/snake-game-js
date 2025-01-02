@@ -681,10 +681,6 @@ video {
   height: 24rem;
 }
 
-.h-\[75vh\] {
-  height: 75vh;
-}
-
 .h-auto {
   height: auto;
 }
@@ -711,10 +707,6 @@ video {
 
 .w-96 {
   width: 24rem;
-}
-
-.w-\[550px\] {
-  width: 550px;
 }
 
 .w-auto {
@@ -776,6 +768,11 @@ video {
 .bg-black {
   --tw-bg-opacity: 1;
   background-color: rgb(0 0 0 / var(--tw-bg-opacity, 1));
+}
+
+.bg-green-700 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(21 128 61 / var(--tw-bg-opacity, 1));
 }
 
 .bg-red-700 {
