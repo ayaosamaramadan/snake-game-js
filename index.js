@@ -22,16 +22,48 @@ foodPlace();
 const snakeMoving = () => {
     let snack = document.createElement("div");
     let head ={ l: 0, t: 0 };
-    setInterval(() => {  snack.classList.add("bg-green-700", "w-5", "h-5", "rounded-lg", "absolute");
-    head.l+=20;
+    let num = 10;
+    let dirc = "right";
+    body.appendChild(snack);
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "ArrowRight" ) {
+                dirc = "right";
+      } else if (e.key === "ArrowLeft") {
+                dirc = "left";
+      } else if (e.key === "ArrowUp") {
+                 dirc = "up";
+      } else if (e.key === "ArrowDown") {
+                dirc = "down";
+      }
+    }
+  
+    ); 
+    setInterval(() => {
+      snack.classList.add("bg-green-700", "w-5", "h-5", "rounded-lg", "absolute");
+    
+
+    if (dirc === "right") {
+      head.l += num;
+    }
+    if (dirc === "left") {
+      head.l -= num;
+    }
+    if (dirc === "up") {
+      head.t -= num;
+      
+    }
+    if (dirc === "down") {
+      head.t += num;
+      
+    }
+    
     snack.style.left = head.l + "px";
     snack.style.top = head.t + "px";
-    body.appendChild(snack);
-  }, 1000);
+    console.log("l:"+head.l +"r:"+ head.t);
+    
+  }, 200);
 
-  document.addEventListener("keydown", (e) => {
-    console.log(e);
-  });
+  
 };
 
 snakeMoving();
