@@ -1,27 +1,27 @@
-// let edge = document.getElementById("contain");
 let body = document.querySelector("body");
-// let start = document.getElementById("start");
-// let snake = document.getElementById("snake");
+let foodx,foody;
+let food = document.createElement("div");
+
 console.log(body.getBoundingClientRect());
 
 const foodPlace = () => {
-  let food = document.createElement("div");
-  let { width, height } = body.getBoundingClientRect();
+  
+    let { width, height } = body.getBoundingClientRect();
 
   food.classList.add("bg-red-700", "w-5", "h-5", "rounded-lg", "absolute");
-  let x = Math.round((Math.random() * width) / 10) * 10;
-  let y = Math.round((Math.random() * height) / 10) * 10;
-  food.style.left = x + "px";
-  food.style.top = y + "px";
-  // console.log(x + y);
+   foodx = Math.floor((Math.random() * width) / 10) * 10;
+   foody = Math.floor((Math.random() * height) / 10) * 10;
+  food.style.left = foodx + "px";
+  food.style.top = foody + "px";
+  // console.log(foodx + foody);
   body.appendChild(food);
 };
 
 foodPlace();
-
+  let head ={ l: 0, t: 0 };
 const snakeMoving = () => {
     let snack = document.createElement("div");
-    let head ={ l: 0, t: 0 };
+  
     let num = 10;
     let dirc = "right";
     body.appendChild(snack);
@@ -61,9 +61,16 @@ const snakeMoving = () => {
     snack.style.top = head.t + "px";
     console.log("l:"+head.l +"r:"+ head.t);
     
-  }, 200);
+    if (head.l === foodx && head.t === foody) {
+      console.log("food");
+      // Place new food
+      foodPlace();
+    }
 
-  
+  }, 200);  
 };
 
 snakeMoving();
+
+// console.log("foodx:"+foodx,foody);
+
